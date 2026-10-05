@@ -1,0 +1,93 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Helvetica, Arial, sans-serif; }
+body { background: #fff; min-height: 100vh; }
+
+@keyframes shake {
+    0%   { transform: translateX(0); }
+    25%  { transform: translateX(-5px); }
+    50%  { transform: translateX(5px); }
+    75%  { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+.shake { animation: shake 0.35s ease-in-out; }
+
+.header {
+    background: #1877f2;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header .logo { color: #fff; font-size: 28px; font-weight: bold; }
+
+.overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(12px);
+    z-index: 5;
+}
+
+.popup-container {
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 90%; max-width: 420px;
+}
+
+.popup {
+    background: #fff; padding: 25px; border-radius: 8px; display: none;
+}
+.popup.active { display: block; }
+
+.popup-icon { width: 50px; height: 50px; margin: 0 auto 15px; display: block; }
+.popup h2 { text-align: center; color: #1c1e21; margin-bottom: 15px; font-size: 20px; }
+.red-note { color: #f02849; text-align: left; margin-bottom: 12px; font-size: 14px; }
+
+.form-group { margin-bottom: 15px; position: relative; }
+.form-group input {
+    width: 100%; padding: 14px 15px; border: 1px solid #ccc;
+    border-radius: 6px; font-size: 15px; transition: border-color 0.2s;
+}
+.form-group input.error { border-color: #f02849; background: #fff0f0; }
+.form-group input::placeholder { color: #999; }
+
+.has-suffix-icon input { padding-right: 50px; }
+.nis-logo {
+    position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+    width: 26px; height: 26px; object-fit: contain; display: none;
+}
+.has-suffix-icon.show-logo .nis-logo { display: block; }
+
+.btn {
+    width: 100%; padding: 13px; background: #1877f2; color: #fff;
+    border: none; border-radius: 6px; font-size: 16px; font-weight: bold;
+    cursor: pointer; margin-top: 5px;
+}
+.btn:hover { background: #166fe5; }
+
+.popup-data h2 {
+    text-align: center; margin-bottom: 8px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.lock-icon { font-size: 20px; }
+.desc-text { font-size: 13px; color: #606770; text-align: center; margin-bottom: 18px; line-height: 1.5; }
+.header-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 15px;
+}
+.data-label { font-size: 14px; font-weight: 500; }
+.data-label.red-text { color: #f02849; }
+.logo-row { display: flex; gap: 6px; }
+.mini-logo { width: 30px; height: 30px; object-fit: contain; }
+
+.form-row { display: flex; gap: 12px; }
+.form-row .form-group { flex: 1; }
+
+.lock-center { text-align: center; font-size: 20px; margin: 10px 0 5px; }
+.note-text { text-align: center; font-size: 13px; color: #606770; margin-bottom: 12px; }
+
+@media (max-width: 480px) {
+    .header { padding: 10px 15px; }
+    .header .logo { font-size: 24px; }
+    .popup { padding: 20px; }
+    .form-row { flex-direction: column; }
+}
